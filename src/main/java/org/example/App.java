@@ -23,12 +23,11 @@ public class App {
             session.beginTransaction();
 
             Person person = new Person("Test person", 30);
-            Item item = new Item("Test Item", person);
-
-            person.setItems(new ArrayList<Item>(Collections.singletonList(item)));
+            person.addItem(new Item("Test Item1"));
+            person.addItem(new Item("Test Item2"));
+            person.addItem(new Item("Test Item3"));
 
             session.save(person);
-            session.save(item);
 
             session.getTransaction().commit();
         }finally {
